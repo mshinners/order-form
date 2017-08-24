@@ -1,10 +1,14 @@
 'use strict';
 
+if (localStorage.getItem('submittedOrders')) {
+  var savedOrders = JSON.parse(localStorage.getItem('submittedOrders'));
+} else {
+  var savedOrders = [];
+}
+
 var names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dogduck', 'dragon', 'pen', 'petsweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'watercan', 'wineglass'];
 
 var paths = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dogduck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/petsweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.gif', 'img/watercan.jpg', 'img/wineglass.jpg'];
-
-var savedOrders = [];
 
 function Product(name, paths) {
   this.name = name;
@@ -23,10 +27,10 @@ function createDropDownMenu() {
   tr.appendChild(td);
   td = document.getElementById('whichProduct');
   var select = document.createElement('select');
+  select.setAttribute('id', 'product');
   td.appendChild(select);
   for (var i = 0; i < names.length; i++) {
     var option = document.createElement('option');
-    option.setAttribute('id', 'product');
     option.innerText = names[i];
     select.appendChild(option);
   }
@@ -51,7 +55,7 @@ function Order(custName, custPhone, custAddress, custCity, custState, custZip, c
   this.custState = custState;
   this.custZip = custZip;
   this.custProduct = custProduct;
-  this.custQuanity = custQuanity;
+  this.custQuanity = custQuantity;
   this.custCredit = custCredit;
   this.custExp = custExp;
   this.custCsv = custCsv;
