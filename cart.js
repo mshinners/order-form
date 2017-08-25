@@ -22,10 +22,9 @@ function generateCurrentOrders() {
   for (var i = 0; i < savedOrders.length; i++) {
     var orders = document.getElementById('listOfOrders');
     var table = document.createElement('table');
-    table.setAttribute('id', 'order ' + i);
+    table.setAttribute('id', i);
     orders.appendChild(table);
     var tr = document.createElement('tr');
-    tr.setAttribute('id', 'order ' + (i + 1));
     table.appendChild(tr);
     var td = document.createElement('td');
     td.setAttribute('id', 'picture ' + i);
@@ -35,7 +34,6 @@ function generateCurrentOrders() {
       if(products[j].prodName === savedOrders[i].custProduct) {
         img.setAttribute('src', products[j].paths);
         img.setAttribute('class', 'image');
-        debugger;
         td.appendChild(img);
       }
     }
@@ -54,8 +52,10 @@ function generateCurrentOrders() {
 }
 
 function handleClick(event) {
-  table = document.getElementById('listOfOrders');
-  table.parentNode.removeChild(table);
+  var which = event.target.getAttribute('row');
+  var div = document.getElementById('listOfOrders');
+  var table = document.getElementById(which);
+  div.removeChild(table);
 }
 
 generateCurrentOrders();
