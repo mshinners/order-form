@@ -25,6 +25,7 @@ function generateCurrentOrders() {
     table.setAttribute('id', 'order ' + i);
     orders.appendChild(table);
     var tr = document.createElement('tr');
+    tr.setAttribute('id', 'order ' + (i + 1));
     table.appendChild(tr);
     var td = document.createElement('td');
     td.setAttribute('id', 'picture ' + i);
@@ -33,33 +34,28 @@ function generateCurrentOrders() {
     for(var j = 0; j < products.length; j++) {
       if(products[j].prodName === savedOrders[i].custProduct) {
         img.setAttribute('src', products[j].paths);
-        img.setAttribute('rowspan', '4');
         img.setAttribute('class', 'image');
+        debugger;
         td.appendChild(img);
       }
     }
     td = document.createElement('td');
-    td.setAttribute('id', 'itemName');
-    td.setAttribute('rowspan', '2');
-    td.innerHTML = savedOrders[i].custProduct;
-    tr.appendChild(td);
-    td = document.createElement('td');
-    td.setAttribute('id', 'custName');
-    td.innerHTML = savedOrders[i].custName;
-    tr.appendChild(td);
-    tr = document.createElement('tr');
-    table.appendChild(tr);
-    td = document.createElement('td');
-    td.setAttribute('id', 'custAddress');
-    td.innerHTML = savedOrders[i].custAddress;
+    td.innerHTML = savedOrders[i].custQuantity;
     tr.appendChild(td);
     td = document.createElement('td');
     tr.appendChild(td);
-    var input = document.createElement('input');
-    input.setAttribute('type', 'button');
-    input.setAttribute('onclick', ???)
-
+    img = document.createElement('img');
+    img.setAttribute('row', i);
+    img.setAttribute('src', 'img/trash.png');
+    img.setAttribute('class', 'image');
+    td.appendChild(img);
+    img.addEventListener('click', handleClick);
   }
+}
+
+function handleClick(event) {
+  table = document.getElementById('listOfOrders');
+  table.parentNode.removeChild(table);
 }
 
 generateCurrentOrders();

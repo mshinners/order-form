@@ -55,7 +55,7 @@ function Order(custName, custPhone, custAddress, custCity, custState, custZip, c
   this.custState = custState;
   this.custZip = custZip;
   this.custProduct = custProduct;
-  this.custQuanity = custQuantity;
+  this.custQuantity = custQuantity;
   this.custCredit = custCredit;
   this.custExp = custExp;
   this.custCsv = custCsv;
@@ -67,6 +67,8 @@ function handleSubmit(event) {
   savedOrders.push(newOrder);
   var dataToSave = JSON.stringify(savedOrders);
   localStorage.setItem('submittedOrders', dataToSave);
+  var form = document.getElementById('form');
+  form.reset();
 }
 
 createDropDownMenu();
