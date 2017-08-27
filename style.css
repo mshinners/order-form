@@ -11,7 +11,7 @@ h1 {
   font-family: sans-serif;
   font-weight: bold;
   position: fixed;
-  left: 390px;
+  left: 510px;
   top: 250px;
 }
 .image {
@@ -28,11 +28,13 @@ h1 {
 #form{
   background-color: #52C2E8;
   width: 50%;
-  display: block;
+  position: absolute;
   font-size: 0.8em;
    height: 1.2em;
    width: 15em;
    align-items: center;
+   margin-left: 530px;
+   margin-top: 400px;
 }
 #submit {
  color: #501110;
@@ -43,6 +45,11 @@ h1 {
  margin: 0;
  padding: 0;
 }
- {
-  background-color: #F5E0BC;
+table {
+   background-color: #501110;
+   position: relative;
+ }
+#submit {
+  margin-left: 270px;
+  margin-top: -30px;
 }
