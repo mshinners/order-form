@@ -13,6 +13,20 @@ h1 {
   position: fixed;
   left: 510px;
   top: 250px;
+  z-index: 1;
+  background-color: #F5E0BC;
+}
+h2 {
+  color: #501110;
+  text-align: center;
+  font-size: 3em;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: fixed;
+  left: 560px;
+  top: 227px;
+  z-index: 1;
+  background-color: #F5E0BC;
 }
 .image {
   height: 100px;
@@ -23,6 +37,7 @@ h1 {
   position: fixed;
   left: 50%;
   margin-left: -130px;
+  z-index: 1;
 }
 
 #form{
@@ -48,8 +63,27 @@ h1 {
 table {
    background-color: #501110;
    position: relative;
+   color: #F5E0BC;
  }
 #submit {
   margin-left: 270px;
   margin-top: -30px;
+}
+#listOfOrders {
+  position: absolute;
+  left: 620px;
+  top: 350px;
+}
+.link {
+  color: #F5E0BC;
+  background-color: #501110;
+  font-size: 22px;
+  display: block;
+  width: 135px;
+  height: 60px;
+  text-align: center;
+  border: none;
+  margin: 30;
+  padding: 10;
+  border-radius: 20;
 }
